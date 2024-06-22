@@ -1,0 +1,46 @@
+[gd_scene load_steps=2 format=3 uid="uid://b2aj3d15bm0ut"]
+
+[ext_resource type="Script" path="res://Wappo/Menu.cs" id="1_godr6"]
+
+[node name="Menu" type="Node2D"]
+visible = false
+script = ExtResource("1_godr6")
+
+[node name="Control" type="Control" parent="."]
+top_level = true
+layout_mode = 3
+anchors_preset = 0
+offset_right = 640.0
+offset_bottom = 480.0
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+show_behind_parent = true
+layout_mode = 0
+offset_left = 85.0
+offset_top = 117.0
+offset_right = 575.0
+offset_bottom = 361.0
+color = Color(0.381703, 0.381703, 0.381703, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control"]
+layout_mode = 0
+offset_left = 143.0
+offset_top = 186.0
+offset_right = 516.0
+offset_bottom = 292.0
+
+[node name="Menu" type="Label" parent="Control/VBoxContainer"]
+layout_mode = 2
+text = "MENU"
+horizontal_alignment = 1
+
+[node name="New game" type="Button" parent="Control/VBoxContainer"]
+layout_mode = 2
+text = "New game"
+
+[node name="Exit" type="Button" parent="Control/VBoxContainer"]
+layout_mode = 2
+text = "Exit"
+
+[connection signal="pressed" from="Control/VBoxContainer/New game" to="." method="_on_new_game_pressed"]
+[connection signal="pressed" from="Control/VBoxContainer/Exit" to="." method="_on_exit_pressed"]

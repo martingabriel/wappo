@@ -1,0 +1,50 @@
+[gd_scene load_steps=3 format=3 uid="uid://tmriw5v4umtv"]
+
+[ext_resource type="Script" path="res://Wappo/LevelCompleted.cs" id="1_t8xom"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_u60nf"]
+font_color = Color(0, 1, 0, 1)
+
+[node name="LevelCompleted" type="Node2D"]
+visible = false
+script = ExtResource("1_t8xom")
+
+[node name="Control" type="Control" parent="."]
+top_level = true
+layout_mode = 3
+anchors_preset = 0
+offset_right = 640.0
+offset_bottom = 480.0
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+show_behind_parent = true
+layout_mode = 0
+offset_left = 85.0
+offset_top = 117.0
+offset_right = 575.0
+offset_bottom = 361.0
+color = Color(0.381703, 0.381703, 0.381703, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control"]
+layout_mode = 0
+offset_left = 143.0
+offset_top = 186.0
+offset_right = 516.0
+offset_bottom = 292.0
+
+[node name="LevelCompletedLabel" type="Label" parent="Control/VBoxContainer"]
+layout_mode = 2
+text = "LEVEL COMPLETED"
+label_settings = SubResource("LabelSettings_u60nf")
+horizontal_alignment = 1
+
+[node name="Next level" type="Button" parent="Control/VBoxContainer"]
+layout_mode = 2
+text = "Next level"
+
+[node name="Exit" type="Button" parent="Control/VBoxContainer"]
+layout_mode = 2
+text = "Exit"
+
+[connection signal="pressed" from="Control/VBoxContainer/Next level" to="." method="_on_next_level_pressed"]
+[connection signal="pressed" from="Control/VBoxContainer/Exit" to="." method="_on_exit_pressed"]

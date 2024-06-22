@@ -1,0 +1,38 @@
+[gd_scene load_steps=8 format=3 uid="uid://c6lmxnu6expbh"]
+
+[ext_resource type="Script" path="res://Wappo/Game.cs" id="1_hbcsh"]
+[ext_resource type="Script" path="res://Wappo/Level.cs" id="2_mntb0"]
+[ext_resource type="PackedScene" uid="uid://p08lky50inrp" path="res://Wappo/GameOver.tscn" id="4_c1j5e"]
+[ext_resource type="PackedScene" uid="uid://b2aj3d15bm0ut" path="res://Wappo/Menu.tscn" id="5_sxj7y"]
+[ext_resource type="PackedScene" uid="uid://tmriw5v4umtv" path="res://Wappo/LevelCompleted.tscn" id="5_uwnvm"]
+[ext_resource type="AudioStream" uid="uid://b3l2sfotbp12j" path="res://sound/claping_sound.wav" id="6_v2oh5"]
+[ext_resource type="AudioStream" uid="uid://6fkn7nr2cbpp" path="res://sound/sword_sound.wav" id="7_y4cfi"]
+
+[node name="Wappo" type="Node2D"]
+script = ExtResource("1_hbcsh")
+
+[node name="Level" type="Node" parent="."]
+script = ExtResource("2_mntb0")
+
+[node name="GameOver" parent="." instance=ExtResource("4_c1j5e")]
+
+[node name="LevelCompleted" parent="." instance=ExtResource("5_uwnvm")]
+
+[node name="Menu" parent="." instance=ExtResource("5_sxj7y")]
+
+[node name="LevelLabel" type="Label" parent="."]
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 68.0
+offset_bottom = 33.0
+text = "Level: 1"
+
+[node name="ClapSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_v2oh5")
+
+[node name="SwordSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_y4cfi")
+
+[connection signal="LevelRetry" from="GameOver" to="." method="_on_game_over_level_retry"]
+[connection signal="NextLevel" from="LevelCompleted" to="." method="_on_level_completed_next_level"]
+[connection signal="NewGame" from="Menu" to="." method="_on_menu_new_game"]
