@@ -10,5 +10,11 @@ Wappo is 2D logic game with simple rules:
 - Enemy will move 2 steps every 1 player step
 - Enemy can be blocked on walls
 
-This demo containes 9 simple levels.
+Idea started with working prototype:
+
+![prototype](/img/wappo_prototype.jfif)
+
+Completed demo contains 9 simple levels.
+
+![example_demo](/img/wappo_example_demo.png)
 
